@@ -1,17 +1,14 @@
 import React, { useState } from "react";
 import "./ExpenseForm.css";
 
-const ExpenseForm = () => {
+// CREATES THE NEW EXPENSE WITH THE ENTERED VALUES
+const ExpenseForm = (props) => {
+  // SELECTORS
   const [enteredTitle, setEnteredTitle] = useState("");
   const [enteredAmount, setEnteredAmount] = useState("");
   const [enteredDate, setEnteredDate] = useState("");
 
-  // const [userInput, setUserInput] = useState({
-  //   enteredTitle: "",
-  //   enteredAmount: "",
-  //   enteredDate: "",
-  // });
-
+  // HANDLERS FOR TITLE, AMOUNT, DATE, AND SUBMIT
   const titleChangeHandler = (e) => {
     // console.log(e.target.value);
     setEnteredTitle(e.target.value);
@@ -30,12 +27,17 @@ const ExpenseForm = () => {
   const submitHandler = (e) => {
     e.preventDefault();
 
+    // HOLDS THE ENTERED VALUE DATA
     const expenseData = {
       title: enteredTitle,
       amount: enteredAmount,
-      data: new Date(enteredDate),
+      date: new Date(enteredDate),
     };
-    console.log(expenseData);
+
+    // takes the pointer to the function in NewExpense to push the expense data to NewExpense.js
+    props.onSaveExpenseData(expenseData);
+
+    // RESETS THE VALUES TO BE BLANK AFTER SUBMIT
     setEnteredAmount("");
     setEnteredDate("");
     setEnteredTitle("");
@@ -79,4 +81,5 @@ const ExpenseForm = () => {
     </form>
   );
 };
+
 export default ExpenseForm;

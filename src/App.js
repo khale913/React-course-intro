@@ -1,7 +1,10 @@
 import React from "react";
 import Expenses from "./components/Expenses/Expenses";
 import NewExpense from "./components/NewExpense/NewExpense";
+
+// APP LOADS EVERYTHING FROM ALL COMPONENTS
 const App = () => {
+  // PRE LOADED EXPENSES
   const expenses = [
     {
       id: "e1",
@@ -29,9 +32,14 @@ const App = () => {
     },
   ];
 
+  const addExpenseHandler = (expense) => {
+    console.log("in app.js");
+    console.log(expense);
+  };
+
   return (
     <div>
-      <NewExpense></NewExpense>
+      <NewExpense onAddExpense={addExpenseHandler} />
       <Expenses items={expenses} />
     </div>
   );

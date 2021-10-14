@@ -3,6 +3,7 @@ import "./Expenses.css";
 import ExpenseItem from "./ExpenseItem";
 import Card from "../UI/Card";
 
+// FUNCTION CREATES EACH PRE LOADED EXPENSE WITH PRE LOADED EXPENSES SEEN IN APP.JS
 const Expenses = (props) => {
   return (
     <Card className="expenses">
