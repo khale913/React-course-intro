@@ -1,12 +1,11 @@
 import React from "react";
-import "./ExpensesList.css";
+
 import ExpenseItem from "./ExpenseItem";
+import "./ExpensesList.css";
 
 const ExpensesList = (props) => {
-  // DECLARES IF CONTENT IN EXPENSES IS PRESENT OR NOT
-
   if (props.items.length === 0) {
-    return <h2 className="expenses-list__fallback">Found No Expenses.</h2>;
+    return <h2 className="expenses-list__fallback">Found no expenses.</h2>;
   }
 
   return (
